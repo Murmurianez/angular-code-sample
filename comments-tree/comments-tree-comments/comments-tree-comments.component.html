@@ -1,0 +1,34 @@
+<div class="comment-container" *ngFor="let comment of comments">
+
+  <div class="comment" (click)="highlightComments($event)">
+    <div class="comment-block">
+      <div class="content">
+        <div class="text"><b>{{comment.parentData.userName ? comment.parentData.userName + ' ' : ''}}</b><span [innerHTML]="comment.text"></span></div>
+
+        <div class="links">
+          <a href="" (click)="openCommentText($event, comment)">{{!comment.isOpen ? 'Ответить' : 'Не отвечать'}}</a>
+        </div>
+      </div>
+
+      <div class="user">
+        <div class="avatar" [style.backgroundImage]="'url(' + comment.user.avatar + ')'"></div>
+        <a href="">{{comment.user.userName}}</a>
+      </div>
+    </div>
+
+    <div *ngIf="comment.isOpen" class="add-comment">
+      <textarea
+        [(ngModel)]="newComment"
+        cols="80"
+        rows="7"
+      ></textarea>
+
+      <div class="form-buttons">
+        <button-el (click)="addComment(comment)" [text]="'Отправить'"></button-el>
+      </div>
+    </div>
+
+  </div>
+
+  <comments-tree-comments [postId]="postId" [comments]="comment.answers" [user]="user"></comments-tree-comments>
+</div>

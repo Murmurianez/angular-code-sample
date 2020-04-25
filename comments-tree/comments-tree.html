@@ -1,0 +1,28 @@
+<comments-tree-comments *ngIf="!isLoading" [postId]="postId" [comments]="comments" [user]="user"></comments-tree-comments>
+
+<div *ngIf="isLoading" class="comment-container">
+
+  <div class="comment-nested">
+    <div class="comment-nested-block">
+      <div class="content">
+        <div class="text">
+          <text-placeholder count="3"></text-placeholder>
+        </div>
+
+        <div class="links">
+          <a href="">
+            <text-placeholder count="1"></text-placeholder>
+          </a>
+        </div>
+      </div>
+
+      <div class="user">
+        <div class="avatar"></div>
+        <a href="">
+          <text-placeholder count="1"></text-placeholder>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
