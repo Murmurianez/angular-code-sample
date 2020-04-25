@@ -3,30 +3,6 @@ import {AnswersService} from "../../../../src/app/services/answers.service";
 import {User} from "../../../../src/app/services/user.type";
 
 
-export interface Answer {
-  postId: string;
-  parentId: string;
-  commentId: string;
-
-  user: User;
-
-  title: string;
-  text: string;
-  answers: AnswerNode[];
-
-  votes: number;
-
-  likes: number;
-  dislikes: number;
-  happy: number;
-  angry: number;
-  surprise: number;
-  sad: number;
-
-  parentData: object;
-  level: number;
-}
-
 export class AnswerNode implements Answer {
   postId: string = '';
   parentId: string = '';
